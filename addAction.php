@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$contact = mysqli_real_escape_string($mysqli, $_POST['contact']);
 	
 	// Check for empty fields
-	if (empty($studentID) || empty($name) || empty($email) || empty($contacts)) {
+	if (empty($studentID) || empty($name) || empty($email) || empty($contact)) {
 		if (empty($studentID)) {
 			echo "<font color='red'>Student ID field is empty.</font><br/>";
 		}
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		if (empty($email)) {
 			echo "<font color='red'>Email field is empty.</font><br/>";
 		}
-		if (empty($contacts)) {
+		if (empty($contact)) {
 			echo "<font color='red'>Contacts field is empty.</font><br/>";
 		}
 
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		} else {
 			// Prepared statement for safer database interaction
 			$stmt = $mysqli->prepare("INSERT INTO users (`studentID`, `name`, `email`, `contact`) VALUES (?, ?, ?, ?)");
-			$stmt->bind_param("ssss", $studentID, $name, $email, $contacts);
+			$stmt->bind_param("ssss", $studentID, $name, $email, $contact);
 			
 			if ($stmt->execute()) {
 				// Display success message

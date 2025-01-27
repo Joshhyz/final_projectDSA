@@ -47,7 +47,7 @@ $total_pages = ceil($total_records / $records_per_page);
     <div class="container mt-4">
         <div class="action-row">
             <p>Total Records: <?php echo $total_records; ?></p>
-            <a href="edit.php" class="btn">Add New Data</a>
+            <a href="add.php" class="btn">Add New Data</a>
         </div>
 
         <!-- Table -->
