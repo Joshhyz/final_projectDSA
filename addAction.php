@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			echo "<font color='red'>Email field is empty.</font><br/>";
 		}
 		if (empty($contact)) {
-			echo "<font color='red'>Contacts field is empty.</font><br/>";
+			echo "<font color='red'>Contact field is empty.</font><br/>";
 		}
 
 		// Show link to the previous page
