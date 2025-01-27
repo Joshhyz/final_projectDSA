@@ -9,9 +9,8 @@
 // Include the database connection file
 require_once("dbConnection.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"=="POST"]) {
 	// Escape special characters in string for use in SQL statement	
-	$id = uniqid(); // Generate a unique ID
 	$studentID = mysqli_real_escape_string($mysqli, $_POST['studentID']);
 	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
 	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
@@ -19,8 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	// NEED TO DEBUG 
 	// Check for empty fields
-	if (empty($studentID) || empty($name) || empty($age) || empty($email)) {
-
+	if (empty($studentID) || empty($name) || empty($email) || empty($address)) {
 		if (empty($studentID)) {
 			echo "<font color='red'>Student Id field is empty.</font><br/>";
 		}
@@ -43,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
 		} else {
 			// Prepared statement for safer database interaction
-			$stmt = $mysqli->prepare("INSERT INTO users (`id`, `studentID`, `name`, `age`, `email`) VALUES (?, ?, ?, ?, ?)");
-			$stmt->bind_param("sssis", $id, $studentID, $name, $age, $email);
+			$stmt = $mysqli->prepare("INSERT INTO users (`id`, `studentID`, `name`, `age`, `gender`, `email`, `address`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+			$stmt->bind_param("sssssss", $studentID, $name, $email, $address);
 			
 			if ($stmt->execute()) {
 				// Display success message
