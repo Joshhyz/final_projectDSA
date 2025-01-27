@@ -24,7 +24,8 @@
         </div>
         <div class="buttons">
             <button class="submit" type="submit">Submit</button>
-            <button class="cancel" type="reset">Cancel</button>
+            <button class="cancel" type="button" 
+            onclick="window.location.href='index.php';">Cancel</button>
         </div>   
     </form>
 </section>
