@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"=="POST"]) {
 	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
 	
+	// NEED TO DEBUG 
 	// Check for empty fields
 	if (empty($studentID) || empty($name) || empty($email) || empty($address)) {
 		if (empty($studentID)) {
