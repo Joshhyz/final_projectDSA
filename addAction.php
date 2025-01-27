@@ -1,4 +1,3 @@
-@ -1,58 +0,0 @@
 <html>
 <head>
 	<title>Add Data</title>
@@ -9,27 +8,26 @@
 // Include the database connection file
 require_once("dbConnection.php");
 
-if ($_SERVER["REQUEST_METHOD"=="POST"]) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// Escape special characters in string for use in SQL statement	
 	$studentID = mysqli_real_escape_string($mysqli, $_POST['studentID']);
 	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
-	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
-	
-	// NEED TO DEBUG 
+	$address = mysqli_real_escape_string($mysqli, $_POST['address']); // Added missing address
+
 	// Check for empty fields
-	if (empty($studentID) || empty($name) || empty($email) || empty($address)) {
+	if (empty($studentID) || empty($name) || empty($email) || empty($contact)) {
 		if (empty($studentID)) {
 			echo "<font color='red'>Student Id field is empty.</font><br/>";
 		}
 		if (empty($name)) {
 			echo "<font color='red'>Name field is empty.</font><br/>";
 		}
-		if (empty($age)) {
-			echo "<font color='red'>Age field is empty.</font><br/>";
-		}
 		if (empty($email)) {
 			echo "<font color='red'>Email field is empty.</font><br/>";
+		}
+		if (empty($contact)){
+			echo "<font color='red'>Contact field is empty.</font><br/>";
 		}
 
 		// Show link to the previous page
@@ -41,9 +39,9 @@ if ($_SERVER["REQUEST_METHOD"=="POST"]) {
 			echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
 		} else {
 			// Prepared statement for safer database interaction
-			$stmt = $mysqli->prepare("INSERT INTO users (`id`, `studentID`, `name`, `age`, `gender`, `email`, `address`) VALUES (?, ?, ?, ?, ?, ?, ?)");
-			$stmt->bind_param("sssssss", $studentID, $name, $email, $address);
-			
+			$stmt = $mysqli->prepare("INSERT INTO users (`studentID`, `name`, `email`, `contact`) VALUES (?, ?, ?, ?)");
+			$stmt->bind_param("ssssss", $studentID, $name, $email, $contact); // Removed id parameter as it's auto-increment
+
 			if ($stmt->execute()) {
 				// Display success message
 				echo "<p><font color='green'>Data added successfully!</p>";
