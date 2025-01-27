@@ -11,19 +11,19 @@
 <body>
 <section class="container">
     <header>Registration Form</header>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="form">
+    <form name="registrationForm" action="addAction.php" method="POST" class="form" onsubmit="return validateForm()">
         <div class="input-box">
             <label>Student ID</label>
-            <input class="entry" type="text" name="studentID" value="<?php echo $studentID; ?>" placeholder="20XX-XXXXX-MN-0">
+            <input class="entry" type="text" name="studentID" placeholder="20XX-XXXXX-MN-0">
             <label>Full Name</label>
-            <input class="entry" type="text" name="name" value="<?php echo $name; ?>" placeholder="ex: Juan Dela Cruz">
+            <input class="entry" type="text" name="name" placeholder="ex: Juan Dela Cruz">
             <label>Email</label>
-            <input class="entry" type="email" name="email" value="<?php echo $email; ?>" placeholder="ex: juandelacruz@mail.com">
+            <input class="entry" type="email" name="email" placeholder="ex: juandelacruz@mail.com">
             <label>Contact</label>
-            <input class="entry" type="text" name="contact" value="<?php echo $contact; ?>" placeholder="09XXXXXXXXX">
+            <input class="entry" type="text" name="contact" placeholder="09XXXXXXXXX">
         </div>
         <div class="buttons">
-            <button class="submit">Submit</button>
+            <button class="submit" type="submit">Submit</button>
             <button class="cancel" type="reset">Cancel</button>
         </div>   
     </form>
