@@ -3,7 +3,7 @@
 require_once("dbConnection.php");
 
 // Records per page
-$records_per_page = 5;
+$records_per_page = 10;
 
 // Get the current page or set it to 1 if not provided
 $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
