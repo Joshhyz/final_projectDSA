@@ -40,28 +40,27 @@ $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel']) &&
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-    <h2>EDIT FORM</h2>
-    <section class="container">
+<section class="container">
         <header>Edit Data</header>
-        <form method="post" class="form">
+        <form action="post" class="form">
             <div class="input-box">
-                <label for="studentID">Student ID</label>
-                <input class="entry" type="text" id="studentID" name="studentID" value="<?php echo $studentID; ?>" required>
-
-                <label for="name">Name</label>
-                <input class="entry" type="text" id="name" name="name" value="<?php echo $name; ?>" required>
-
-                <label for="email">Email</label>
-                <input class="entry" type="email" id="email" name="email" value="<?php echo $email; ?>" required>
-
-                <label for="contact">Contact</label>
-                <input class="entry" type="text" id="contact" name="contact" value="<?php echo $contact; ?>" required>
+                <label>ID</label>
+                <input  class="entry" type="text" name="id" value="<?php echo $id; ?>" required>
+                <label>Student ID</label>
+                <input  class="entry" type="text" name="studentID" value="<?php echo $studentID; ?>" required>
+                <label>Name</label>
+                <input  class="entry" type="text" name="name" value="<?php echo $name; ?>" required>
+                <label>Email</label>
+                <input  class="entry" type="text" name="email" value="<?php echo $email; ?>" required>
+                <label>Contact</label>
+                <input  class="entry" type="text" name="Contact" value="<?php echo $contact; ?>" required>
             </div>
             <div class="buttons">
-                <button type="submit" name="submit" class="btn btn-primary submit">Submit</button>
-                <button type="submit" name="cancel" class="btn btn-secondary cancel">Cancel</button>
-            </div>
+                <button type="submit" class="submit">Submit</button>
+                <button type="submit" class="cancel">Cancel</button>
+            </div>   
         </form>
     </section>
 </body>
 </html>
+
