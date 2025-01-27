@@ -31,9 +31,8 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `studentID` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `age` int(3) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `address` varchar(100) NOT NULL
+  `contact` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

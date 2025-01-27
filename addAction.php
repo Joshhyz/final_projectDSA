@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$studentID = mysqli_real_escape_string($mysqli, $_POST['studentID']);
 	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
-	$address = mysqli_real_escape_string($mysqli, $_POST['address']); // Added missing address
+	$contact = mysqli_real_escape_string($mysqli, $_POST['contact']); // Added missing address
 
 	// Check for empty fields
 	if (empty($studentID) || empty($name) || empty($email) || empty($contact)) {
@@ -39,8 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
 		} else {
 			// Prepared statement for safer database interaction
-			$stmt = $mysqli->prepare("INSERT INTO users (`studentID`, `name`, `email`, `contact`) VALUES (?, ?, ?, ?)");
-			$stmt->bind_param("ssssss", $studentID, $name, $email, $contact); // Removed id parameter as it's auto-increment
+			$stmt = $mysqli->prepare("INSERT INTO users (studentID, name, email, contact) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $studentID, $name, $email, $contact); // Removed id parameter as it's auto-increment
 
 			if ($stmt->execute()) {
 				// Display success message
