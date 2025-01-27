@@ -109,6 +109,11 @@ $all_data = mysqli_query($mysqli, "SELECT COUNT(*) FROM users");
 $count = mysqli_fetch_row($all_data);
 $total_records = $count[0]; // Total number of records
 $total_pages = ceil($total_records / $records_per_page);
+
+
+$_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Add New Data']) && 
+    	header("Location: add.php") && exit();
+		
 ?>
 
 <!DOCTYPE html>
@@ -130,7 +135,7 @@ $total_pages = ceil($total_records / $records_per_page);
         <div class="d-flex justify-content-between align-items-center mb-3">
             <p class="fw-bold">Total Records: <?php echo $total_records; ?></p>
             <button class="btn btn-primary">
-                <a href="edit.php" class="text-white text-decoration-none">Add New Data</a>
+                <a href="add.php" class="text-white text-decoration-none">Add New Data</a>
             </button>
         </div>
 
