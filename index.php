@@ -16,7 +16,7 @@ $total_records = $count[0]; // Total number of records
 
 $total_pages = ceil($total_records / $records_per_page);
 
-
+	
 ?>
 
 
@@ -62,6 +62,20 @@ $total_pages = ceil($total_records / $records_per_page);
 			echo "<td><a href=\"edit.php?id=$row[id]\">Edit</a> | 
 			<a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td></tr>";
 		}
+		$_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && 
+   		    mysqli_query($mysqli, "UPDATE users SET 
+    
+       			 studentID = '{$_POST['studentID']}', 
+        		name = '{$_POST['name']}', 
+        		email = '{$_POST['email']}', 
+       			contact = '{$_POST['contact']}' 
+       			WHERE id = $id");
+        		$_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && 
+        		header("Location: index.php") && exit();
+
+		$_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel']) && 
+   		    header("Location: index.php") && exit();
+
 	?>
 	</table>
 	

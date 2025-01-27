@@ -1,99 +1,110 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
 
 body {
-    background-image: url(pictures/2222.jpg);
+    background-image: url(/pictures/image.png);
     background-repeat: no-repeat;
-    background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    background-position: 0cap;
-    
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+    color: white;
 }
 
-
-table{
-
-  height: 60px;
-  background-color: #ff7613 ;
-    text-align: center;
-    font-size: 20px;
-   color: white;
-   justify-content: center;
-   text-shadow: 0 0 3px black;
-}
-
-.infos{
-    width:80%;
-    border:0;
-    margin-left: auto;
-    margin-right: auto;
- 
-}
-
-
-
-
-
-
-nav {
-    margin-top: 35%;
-}
-
-
-
-.heading{
-    margin-left: 25px;
-    margin-top: 20px;
-    color: #ff7613  ;
-    
-}
-
-
-p{
-color: white;
-margin-left: 190px;
- margin-top: 10px;
-font-size: 20px;
-position:sticky;
-
-}
-
-button{
+/* Header */
+.head {
     background-color: #ff7613;
-    position: relative;
-    left: 1570px;
-    top: 37px;
-    
-  }
-  
-  a{
-    font-size: 19px;
-    position: relative;
- 
-    
-    
-  }
-
-  .addbut{
     color: black;
-    
-    
-    
-  }
+    text-align: center;
+    padding: 30px;
+    font-weight: bold;
+}
 
- 
+/* Form Section */
+.container {
+    width: 500px;
+    padding: 10px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(30px);
+    font-weight: bold;
+    margin-bottom: 190px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
+form {
+    display: grid;
+    gap: 10px;
+}
 
-  
+form label {
+    font-size: 17px;
+    color: white;
+    margin-top: 20px;
+}
 
+form input,
+form select {
+    padding: 7px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    width: 100%;
+}
 
-  
+form button {
+    padding: 8px;
+    background-color: rgba(107, 106, 104, 0.678);
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-shadow: 0 0 3px white;
+}
 
-  
+button:hover {
+    background-color: #ff7613;
+    color: white;
+}
 
+/* Table */
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
 
+/* Pagination */
+.btn {
+    background-color: #ff7613;
+    color: black;
+    border: none;
+}
 
+.btn:hover {
+    background-color: #e65c00;
+    color: white;
+}
 
+.pagination span {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
