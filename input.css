@@ -13,48 +13,53 @@
 }
 
 body {
-    background-image: url(pictures/2222.jpg);
+    background-image: url(pictures/vecteezy_creative-abstract-geometric-stripes-background-defocused_25178516.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 20px;
-  
 }
 
 .container {
     position: relative;
-    max-width: 700px;
+    max-width: 550px !important;
     width: 100%;
     padding: 25px;
-    background: #fff;
+    border: 2px solid rgba(255, 255, 255, .2);
+    background: transparent; /* Semi-transparent background */
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px); /* Blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
 
+
 .container header {
-    font-size: 1.5rem;
-    color: #333;
-    font-weight: 500;
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 600;
     text-align: center;
 }
 
 .form {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .input-box {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 25px; /* Increased spacing between input boxes */
 }
 
 .input-box label {
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.input-box label:hover {
-    color: var(--primary-color);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.3px; /* Space between label and input */
+    display: inline-block; /* Ensures margin applies properly */
 }
 
 .input-box input {
@@ -63,7 +68,9 @@ body {
     outline: none;
     font-size: 1rem;
     color: #707070;
+    background-color: blur(20px);
     margin-top: 8px;
+    margin-bottom: 15px; /* Adds spacing below the input field */
     border: 1px solid #ddd;
     border-radius: 6px;
     padding: 0 15px;
@@ -71,46 +78,56 @@ body {
 }
 
 .input-box input:focus {
-    border-color: var(--primary-color);
+    border-color: var(--primary-color); /* Highlights the border with primary color */
+    border-width: 2px; /* Slightly thicker border for better focus */
+    box-shadow: 0 0 8px rgba(255, 118, 19, 0.6); /* Adds a smoother glow effect */
+    outline: none; /* Removes the default outline for focus */
+    background-color: rgba(255, 118, 19, 0.1); /* Adds a subtle background highlight */
+    color: #fff; /* Keeps text color readable */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
+
+
+
 
 .buttons {
     width: 100%;
-    margin-top: 8px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Adds spacing between buttons */
 }
 
 button {
-    background-color: transparent; /* No background initially */
-    color: var(--primary-color); /* Text color matches the border */
-    border: 2px solid var(--primary-color); /* Border with the primary color */
-    padding: 8px 16px; /* Padding for size */
-    font-size: 0.9rem; /* Adjusted font size */
-    border-radius: 10px; /* Rounded corners */
-    margin-top: 20px; /* Space above the button */
-    cursor: pointer; /* Pointer cursor on hover */
-    height: 40px; /* Fixed button height */
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+    flex: 1; /* Makes buttons responsive and consistent in size */
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: 6px !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #ff5500; /* Fill background color on hover */
-    color: #fff; /* Change text color to white */
-    border-color: #ff5500; /* Border color matches background */
+    background-color: #ff5500;
+    color: #fff;
+    border-color: #ff5500;
 }
 
-.form .entry:hover {
-    border-color: #ff5500; /* Changes border color of .entry in .form */
-}
 /* Responsive Styles */
 @media (max-width: 768px) {
+    body {
+        padding: 0 10px;
+    }
+
     .container {
         padding: 20px;
-        max-width: 100%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .container header {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     .input-box input {
@@ -120,21 +137,22 @@ button:hover {
     }
 
     button {
-        padding: 6px 14px;
-        font-size: 0.8rem;
-        height: 38px;
-        border-radius: 8px;
+        padding: 8px 14px;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .container {
         padding: 15px;
-        border-radius: 6px;
     }
 
     .container header {
         font-size: 1.2rem;
+    }
+
+    .input-box label {
+        font-size: 0.9rem;
     }
 
     .input-box input {
@@ -144,14 +162,7 @@ button:hover {
     }
 
     button {
-        padding: 5px 12px;
-        font-size: 0.7rem;
-        height: 36px;
-        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
-}
-
-.heading{
-    color: #ff7613;
-    position: static;
 }
