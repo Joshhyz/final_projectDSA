@@ -57,7 +57,8 @@ $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel']) &&
             </div>
             <div class="buttons">
                 <button type="submit" class="submit">Submit</button>
-                <button type="submit" class="cancel">Cancel</button>
+                <button class="cancel" type="button" 
+                onclick="window.location.href='index.php';">Cancel</button>
             </div>   
         </form>
     </section>
