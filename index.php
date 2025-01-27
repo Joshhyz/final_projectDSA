@@ -16,7 +16,7 @@ $total_records = $count[0]; // Total number of records
 
 $total_pages = ceil($total_records / $records_per_page);
 
-	
+
 ?>
 
 

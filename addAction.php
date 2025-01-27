@@ -9,7 +9,7 @@
 // Include the database connection file
 require_once("dbConnection.php");
 
-if ($_SERVER["REQUEST_METHOD"=="POST"]) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// Escape special characters in string for use in SQL statement	
 	$studentID = mysqli_real_escape_string($mysqli, $_POST['studentID']);
 	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
