@@ -20,14 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         $stmt = $mysqli->prepare("INSERT INTO users (studentID, name, email, contact) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("ssss", $studentID, $name, $email, $contact);
             
-            if ($stmt->execute()) {
-                // Display success message
-                echo "<p><font color='green'>Data added successfully!</font></p>";
-                echo "<a href='index.php'>View Result</a>";
-            } else {
-                // Error handling
-                echo "<font color='red'>Error: " . $stmt->error . "</font><br/>";
-            }
+          $stmt->execute();
+          if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])  && 
+        header("Location: index.php") && exit())
+        
+    
             $stmt->close();
         }
 }
