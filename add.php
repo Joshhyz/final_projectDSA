@@ -19,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         // Proceed with form processing (e.g., insert into DB)
         $stmt = $mysqli->prepare("INSERT INTO users (studentID, name, email, contact) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("ssss", $studentID, $name, $email, $contact);
+
+            
             
           $stmt->execute();
           if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])  && 

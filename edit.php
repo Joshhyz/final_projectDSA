@@ -11,13 +11,16 @@ $result = mysqli_query($mysqli, "SELECT * FROM users WHERE id = $id");
 // Fetch the next row of a result set as an associative array
 $resultData = mysqli_fetch_assoc($result);
 
+
+$id = $resultData['id'];
 $studentID = $resultData['studentID'];
 $name = $resultData['name'];
 $email = $resultData['email'];
 $contact = $resultData['contact'];
 
+
 // Handle form submission
-$_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && 
+/*$_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && 
     mysqli_query($mysqli, "UPDATE users SET 
     
         studentID = '{$_POST['studentID']}', 
@@ -26,10 +29,12 @@ $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) &&
         contact = '{$_POST['contact']}' 
         WHERE id = $id");
         $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && 
-        header("Location: index.php") && exit();
+        header("Location: index.php") && exit(); */
 
 $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel']) && 
     header("Location: index.php") && exit();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -42,10 +47,10 @@ $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel']) &&
 <body>
 <section class="container">
         <header>Edit Data</header>
-        <form action="post" class="form">
+        <form action="editAction.php"method="POST" class="form">
             <div class="input-box">
                 <label>ID</label>
-                <input  class="entry" type="text" name="id" value="<?php echo $id; ?>" required>
+                <input  class="entry" type="text" name="id" value="<?php echo $id; ?>" disabled="disabled">
                 <label>Student ID</label>
                 <input  class="entry" type="text" name="studentID" value="<?php echo $studentID; ?>" required>
                 <label>Name</label>
@@ -53,10 +58,11 @@ $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel']) &&
                 <label>Email</label>
                 <input  class="entry" type="text" name="email" value="<?php echo $email; ?>" required>
                 <label>Contact</label>
-                <input  class="entry" type="text" name="Contact" value="<?php echo $contact; ?>" required>
+                <input  class="entry" type="text" name="contact" value="<?php echo $contact; ?>" required>
             </div>
             <div class="buttons">
-                <button type="submit" class="submit">Submit</button>
+             <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <button type="submit "name=update class="submit">Submit</button>
                 <button class="cancel" type="button" 
                 onclick="window.location.href='index.php';">Cancel</button>
             </div>   

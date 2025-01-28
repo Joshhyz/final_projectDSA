@@ -3,7 +3,8 @@
 require_once("dbConnection.php");
 
 if (isset($_POST['update'])) {
-    // Escape special characters in a string for use in an SQL statement
+    // Escape special characters in a string for use in an SQL 
+    $id = mysqli_real_escape_string($mysqli, $_POST['id']);
     $studentID = mysqli_real_escape_string($mysqli, $_POST['studentID']);
     $name = mysqli_real_escape_string($mysqli, $_POST['name']);
     $email = mysqli_real_escape_string($mysqli, $_POST['email']);
@@ -29,7 +30,7 @@ if (isset($_POST['update'])) {
         echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
     } else {
         // Update the database table
-		$result = mysqli_query($mysqli, "UPDATE users SET `studentID` = '$studentID', `name` = '$name', `email` = '$email', `contact` = '$contact' WHERE `studentID` = '$studentID'");
+		$result = mysqli_query($mysqli, "UPDATE users SET `studentID` = '$studentID', `name` = '$name', `email` = '$email', `contact` = '$contact' WHERE `id` = '$id'");
 
         // Display success message
         echo "<p><font color='green'>Data updated successfully!</p>";
