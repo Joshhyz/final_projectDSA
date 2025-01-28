@@ -2,6 +2,8 @@
 // Initialize error message variable
 $error_message = "";
 
+require_once("dbConnection.php");
+
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     // Retrieve the form data
@@ -15,10 +17,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         $error_message = "All fields are required. Please fill in all fields.";
     } else {
         // Proceed with form processing (e.g., insert into DB)
-        // Redirect after processing (you can modify this as per your needs)
-        header("Location: index.php");
-        exit();
-    }
+        $stmt = $mysqli->prepare("INSERT INTO users (studentID, name, email, contact) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $studentID, $name, $email, $contact);
+            
+            if ($stmt->execute()) {
+                // Display success message
+                echo "<p><font color='green'>Data added successfully!</font></p>";
+                echo "<a href='index.php'>View Result</a>";
+            } else {
+                // Error handling
+                echo "<font color='red'>Error: " . $stmt->error . "</font><br/>";
+            }
+            $stmt->close();
+        }
 }
 ?>
 
