@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
         } else {
             // Prepared statement for safer database interaction
-            $stmt = $mysqli->prepare("INSERT INTO test2 (studentID, name, email, contact) VALUES (?, ?, ?, ?)");
+            $stmt = $mysqli->prepare("INSERT INTO users (studentID, name, email, contact) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("ssss", $studentID, $name, $email, $contact);
             
             if ($stmt->execute()) {
